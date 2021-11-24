@@ -20,8 +20,8 @@ class MyApiModule : IApiModule {
 class Program {
     static async Task Main() {
         using ApiClient client = new();
-        client.AddModule(new MyApiModule(new AuthenticationlessModuleAuthentication());
-        ApiResonse<MyResponse> response = client.Get<MyResponse, MyApiModule(params);
+        client.AddModule(new MyApiModule(new AuthlessAuthentication());
+        ApiResonse<MyResponse> response = client.Get<MyResponse, MyApiModule>(params);
         
         // and if you want to access the module directly...
         response = client.GetRequiredModule<MyApiModule>().ExampleMethodReturnsResponse(params);
