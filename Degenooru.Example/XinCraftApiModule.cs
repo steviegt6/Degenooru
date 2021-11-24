@@ -71,6 +71,7 @@ namespace Degenooru.Example
         
         public void Dispose()
         {
+            Client.Dispose();
             GC.SuppressFinalize(this);
         }
     }
