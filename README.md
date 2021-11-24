@@ -30,3 +30,5 @@ class Program {
     }
 }
 ```
+
+The reason for this is to unify large APIs into a more centralized system. If you, say, have an API with many calls but unique object types for each response, using them and simply parsing any given parameters is arguably more reasonable. You can define individual methods in your module for the retrieval of each type, but using an `ApiClient` with your module is as simple as calling `client.Get<ResponseType, ModuleType>(applicableParameters)`. All that is required is documentation.
