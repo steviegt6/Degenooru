@@ -5,7 +5,7 @@ namespace Degenooru.Berate.Modules.Authentication
     /// <summary>
     ///     An <see cref="IModuleAuthentication"/> implementation with zero authentication.
     /// </summary>
-    public class AuthenticationlessModuleAuthentication : IModuleAuthentication
+    public class AuthlessAuthentication : IModuleAuthentication
     {
         public List<IApiModule> AuthenticatedModules { get; } = new();
     }
