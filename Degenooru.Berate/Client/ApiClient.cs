@@ -25,9 +25,8 @@ namespace Degenooru.Berate.Client
         public virtual TApiModule? GetModule<TApiModule>() where TApiModule : IApiModule =>
             (TApiModule?) ApiModules.First(x => x.GetType() == typeof(TApiModule));
 
-        public virtual ApiResponse<T> Get<T, TEnum, TApiModule>(TEnum @enum, params object[] args)
-            where TEnum : Enum where TApiModule : IApiModule =>
-            GetRequiredModule<TApiModule>().Get<T, TEnum>(@enum, args);
+        public virtual async Task<ApiResponse<T>> Get<T, TApiModule>(params object[] args) where TApiModule : IApiModule =>
+            await GetRequiredModule<TApiModule>().GetAsync<T>(args);
 
         protected virtual void Dispose(bool disposing)
         {

@@ -15,7 +15,7 @@ namespace Degenooru.Berate.Modules
         /// </summary>
         IModuleAuthentication Authentication { get; }
 
-        ApiResponse<T> Get<T, TEnum>(TEnum @enum, params object[] args) where TEnum : Enum;
+        Task<ApiResponse<T>> GetAsync<T>(params object[] args);
         
         /// <summary>
         ///     Authenticates the module using the <see cref="Authentication"/> property.

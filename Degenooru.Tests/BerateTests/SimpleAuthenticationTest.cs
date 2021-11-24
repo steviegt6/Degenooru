@@ -22,8 +22,8 @@ namespace Degenooru.Tests.BerateTests
                 Authentication = authentication;
             }
 
-            public ApiResponse<T> Get<T, TEnum>(TEnum @enum, params object[] args) where TEnum : Enum =>
-                new ApiResponse<T>(default, new ApiError(errorReason: "Test class."));
+            public async Task<ApiResponse<T>> GetAsync<T>(params object[] args) =>
+                await Task.FromResult(new ApiResponse<T>(default, new ApiError(errorReason: "Test class.")));
 
             public async Task AuthenticateAsync()
             {

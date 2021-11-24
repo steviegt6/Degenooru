@@ -1,5 +1,5 @@
 # Degenooru
-_Degenooru_ is an enum-based .NET 5.0+ library written in C#, designed for accessing the APIs of numerous different sites, namely image boards.
+_Degenooru_ is a .NET 5.0+ library written in C#, designed for accessing the APIs of numerous different sites, namely image boards.
 
 Why image boards? Because I thought it was funny.
 
