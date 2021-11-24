@@ -4,7 +4,7 @@
     ///     A standard response from an API module.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public struct ApiResponse<T>
+    public readonly struct ApiResponse<T>
     {
         /// <summary>
         ///     The response's value. Will be <see langword="null"/> if an error was caught and handled, but a return value could not be produced.

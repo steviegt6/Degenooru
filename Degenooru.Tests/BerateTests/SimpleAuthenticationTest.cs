@@ -22,6 +22,9 @@ namespace Degenooru.Tests.BerateTests
                 Authentication = authentication;
             }
 
+            public ApiResponse<T> Get<T, TEnum>(TEnum @enum, params object[] args) where TEnum : Enum =>
+                new ApiResponse<T>(default, new ApiError(errorReason: "Test class."));
+
             public async Task AuthenticateAsync()
             {
                 if (Authentication is not (IUsernameAuthentication username and IPasswordAuthentication password))
@@ -48,7 +51,7 @@ namespace Degenooru.Tests.BerateTests
             public List<IApiModule> AuthenticatedModules { get; } = new();
 
             public string Username { get; init; } = "";
-            
+
             public string Password { get; init; } = "";
         }
 
@@ -58,7 +61,7 @@ namespace Degenooru.Tests.BerateTests
 
             public string Username { get; init; } = "";
         }
-        
+
         [Test]
         public static void AuthenticationSuccessTest()
         {

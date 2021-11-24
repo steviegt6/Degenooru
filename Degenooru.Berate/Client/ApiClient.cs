@@ -19,11 +19,15 @@ namespace Degenooru.Berate.Client
             ApiModules.Add(module);
         }
 
-        public virtual TApiModule GetRequiredModule<TApiModule>() =>
+        public virtual TApiModule GetRequiredModule<TApiModule>() where TApiModule : IApiModule =>
             (TApiModule) ApiModules.First(x => x.GetType() == typeof(TApiModule));
 
-        public virtual TApiModule? GetModule<TApiModule>() =>
+        public virtual TApiModule? GetModule<TApiModule>() where TApiModule : IApiModule =>
             (TApiModule?) ApiModules.First(x => x.GetType() == typeof(TApiModule));
+
+        public virtual ApiResponse<T> Get<T, TEnum, TApiModule>(TEnum @enum, params object[] args)
+            where TEnum : Enum where TApiModule : IApiModule =>
+            GetRequiredModule<TApiModule>().Get<T, TEnum>(@enum, args);
 
         protected virtual void Dispose(bool disposing)
         {
